@@ -13,8 +13,8 @@ const populationText = document.getElementById("populationText");
 
 // Grid size for the first version.
 // Later we can increase this to 250, 500, or 1000.
-const cols = 100;
-const rows = 100;
+const cols = 1000;
+const rows = 1000;
 
 const cellSize = canvas.width / cols;
 
@@ -23,6 +23,8 @@ let nextGrid = new Uint8Array(cols * rows);
 
 let isRunning = false;
 let showGrid = false;
+let isDrawing = false;
+let drawMode = 1;
 let generation = 0;
 let lastUpdateTime = 0;
 
@@ -161,7 +163,7 @@ function clearGrid() {
   drawGrid();
 }
 
-function toggleCell(event) {
+function getCellFromMouse(event) {
   const rect = canvas.getBoundingClientRect();
 
   const mouseX = event.clientX - rect.left;
@@ -171,11 +173,21 @@ function toggleCell(event) {
   const y = Math.floor(mouseY / cellSize);
 
   if (x < 0 || x >= cols || y < 0 || y >= rows) {
+    return null;
+  }
+
+  return { x, y };
+}
+
+function setCellFromMouse(event) {
+  const cell = getCellFromMouse(event);
+
+  if (cell === null) {
     return;
   }
 
-  const index = getIndex(x, y);
-  currentGrid[index] = currentGrid[index] === 1 ? 0 : 1;
+  const index = getIndex(cell.x, cell.y);
+  currentGrid[index] = drawMode;
 
   updateStats();
   drawGrid();
@@ -213,7 +225,37 @@ gridToggleButton.addEventListener("click", () => {
   drawGrid();
 });
 
-canvas.addEventListener("click", toggleCell);
+canvas.addEventListener("contextmenu", (event) => {
+  event.preventDefault();
+});
+
+canvas.addEventListener("mousedown", (event) => {
+  isDrawing = true;
+
+  if (event.button === 2) {
+    drawMode = 0; // right click removes cells
+  } else {
+    drawMode = 1; // left click adds cells
+  }
+
+  setCellFromMouse(event);
+});
+
+canvas.addEventListener("mousemove", (event) => {
+  if (!isDrawing) {
+    return;
+  }
+
+  setCellFromMouse(event);
+});
+
+canvas.addEventListener("mouseup", () => {
+  isDrawing = false;
+});
+
+canvas.addEventListener("mouseleave", () => {
+  isDrawing = false;
+});
 
 updateStats();
 drawGrid();
