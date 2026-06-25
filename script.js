@@ -22,6 +22,7 @@ let currentGrid = new Uint8Array(cols * rows);
 let nextGrid = new Uint8Array(cols * rows);
 
 let isRunning = false;
+let showGrid = false;
 let generation = 0;
 let lastUpdateTime = 0;
 
