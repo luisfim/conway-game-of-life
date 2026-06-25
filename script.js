@@ -5,6 +5,7 @@ const playPauseButton = document.getElementById("playPauseButton");
 const stepButton = document.getElementById("stepButton");
 const randomButton = document.getElementById("randomButton");
 const clearButton = document.getElementById("clearButton");
+const gridToggleButton = document.getElementById("gridToggleButton");
 const speedSlider = document.getElementById("speedSlider");
 
 const generationText = document.getElementById("generationText");
