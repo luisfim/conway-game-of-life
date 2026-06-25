@@ -5,10 +5,7 @@ A browser-based recreation of **Conway's Game of Life** using HTML, CSS, JavaScr
 The project started as a clean implementation of the classic cellular automaton and is intended to become the foundation for a future game built around evolving grid-based systems.
 
 ## Live Demo
-
-Add your GitHub Pages link here:
-
-https://luisfim.github.io/YOUR-REPOSITORY-NAME/
+Link: https://luisfim.github.io/conway-game-of-life/index.html
 
 ## Preview
 ![Conway's Game of Life preview](preview.jpeg)
