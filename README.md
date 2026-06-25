@@ -11,7 +11,7 @@ Add your GitHub Pages link here:
 https://luisfim.github.io/YOUR-REPOSITORY-NAME/
 
 ## Preview
-![Conway's Game of Life preview](screenshot.png)
+![Conway's Game of Life preview](preview.jpeg)
 
 Features
 Interactive HTML Canvas simulation
