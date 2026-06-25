@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+  <title>History - Conway's Game of Life</title>
+
+  <link rel="icon" type="image/svg+xml" href="favicon.svg" />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="history-page">
+    <a class="back-link" href="index.html">← Back to simulator</a>
+
+    <img class="title-image" src="title.svg" alt="Conway's Game of Life" />
+
+    <section class="history-section">
+      <h1>The History of Conway's Game of Life</h1>
+
+      <p>
+        Conway's Game of Life is a cellular automaton created by British mathematician
+        John Horton Conway in 1970. It is often described as a zero-player game:
+        after the initial pattern is created, the system evolves by itself.
+      </p>
+
+      <p>
+        The game became famous after Martin Gardner wrote about it in the October 1970
+        issue of <em>Scientific American</em>. Its popularity came from a strange
+        contrast: the rules are extremely simple, but the patterns can become surprisingly
+        complex.
+      </p>
+    </section>
+
+    <section class="history-section">
+      <h2>The Rules</h2>
+
+      <div class="rule-grid">
+        <article>
+          <h3>Underpopulation</h3>
+          <p>A live cell with fewer than two live neighbors dies.</p>
+        </article>
+
+        <article>
+          <h3>Survival</h3>
+          <p>A live cell with two or three live neighbors survives.</p>
+        </article>
+
+        <article>
+          <h3>Overpopulation</h3>
+          <p>A live cell with more than three live neighbors dies.</p>
+        </article>
+
+        <article>
+          <h3>Birth</h3>
+          <p>A dead cell with exactly three live neighbors becomes alive.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <h2>Classic Patterns</h2>
+
+      <div class="pattern-gallery">
+        <article class="pattern-card">
+          <h3>Blinker</h3>
+          <div class="life-pattern blinker-pattern" aria-label="Blinker pattern"></div>
+          <p>
+            A simple oscillator. It alternates between two states forever.
+          </p>
+        </article>
+
+        <article class="pattern-card">
+          <h3>Glider</h3>
+          <div class="life-pattern glider-pattern" aria-label="Glider pattern"></div>
+          <p>
+            A moving pattern that travels diagonally across the grid.
+          </p>
+        </article>
+
+        <article class="pattern-card">
+          <h3>Pulsar</h3>
+          <div class="life-pattern pulsar-pattern" aria-label="Pulsar pattern"></div>
+          <p>
+            A larger oscillator and one of the most recognizable Life patterns.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="history-section">
+      <h2>Why It Matters</h2>
+
+      <p>
+        Game of Life is important because it shows how complex behavior can emerge
+        from simple rules. It is used as a classic example of cellular automata,
+        simulation, emergence, and computational thinking.
+      </p>
+
+      <p>
+        This project recreates the basic simulation first. Later, it can become a
+        real game by adding goals, enemies, resources, survival mechanics, or puzzle
+        systems on top of the cellular automaton.
+      </p>
+    </section>
+
+    <section class="history-section sources">
+      <h2>Sources</h2>
+
+      <ul>
+        <li>
+          <a href="https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life" target="_blank" rel="noopener">
+            Conway's Game of Life - Wikipedia
+          </a>
+        </li>
+        <li>
+          <a href="https://www.ibiblio.org/lifepatterns/october1970.html" target="_blank" rel="noopener">
+            Martin Gardner's October 1970 Scientific American article
+          </a>
+        </li>
+        <li>
+          <a href="https://conwaylife.com/" target="_blank" rel="noopener">
+            ConwayLife.com
+          </a>
+        </li>
+      </ul>
+    </section>
+  </main>
+
+  <footer class="page-footer">
+    Built by
+    <a href="https://github.com/luisfim" target="_blank" rel="noopener">
+      Luis Fim
+    </a>
+  </footer>
+</body>
+</html>
