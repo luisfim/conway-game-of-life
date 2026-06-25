@@ -89,7 +89,7 @@ function updateSimulation() {
 function drawGrid() {
   ctx.clearRect(0, 0, canvas.width, canvas.height);
 
-  ctx.fillStyle = "#00ff88";
+  ctx.fillStyle = "#ffffff";
 
   for (let y = 0; y < rows; y++) {
     for (let x = 0; x < cols; x++) {
