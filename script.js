@@ -7,16 +7,17 @@ const randomButton = document.getElementById("randomButton");
 const clearButton = document.getElementById("clearButton");
 const gridToggleButton = document.getElementById("gridToggleButton");
 const speedSlider = document.getElementById("speedSlider");
+const gridSizeSelect = document.getElementById("gridSizeSelect");
 
 const generationText = document.getElementById("generationText");
 const populationText = document.getElementById("populationText");
 
 // Grid size for the first version.
 // Later we can increase this to 250, 500, or 1000.
-const cols = 1000;
-const rows = 1000;
-
-const cellSize = canvas.width / cols;
+let gridSize = 100;
+let cols = gridSize;
+let rows = gridSize;
+let cellSize = canvas.width / cols;
 
 let currentGrid = new Uint8Array(cols * rows);
 let nextGrid = new Uint8Array(cols * rows);
@@ -109,22 +110,34 @@ function drawGrid() {
 }
 
 function drawGridLines() {
-  ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+  // If the cells are too small, drawing every line makes the canvas look gray.
+  // So for large grids, we draw only major grid lines.
+  let lineStep = 1;
+
+  if (cellSize < 2) {
+    lineStep = 50;
+  } else if (cellSize < 4) {
+    lineStep = 10;
+  }
+
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.18)";
   ctx.lineWidth = 1;
 
-  for (let x = 0; x <= cols; x++) {
-    ctx.beginPath();
-    ctx.moveTo(x * cellSize, 0);
-    ctx.lineTo(x * cellSize, canvas.height);
-    ctx.stroke();
+  ctx.beginPath();
+
+  for (let x = 0; x <= cols; x += lineStep) {
+    const pixelX = Math.floor(x * cellSize) + 0.5;
+    ctx.moveTo(pixelX, 0);
+    ctx.lineTo(pixelX, canvas.height);
   }
 
-  for (let y = 0; y <= rows; y++) {
-    ctx.beginPath();
-    ctx.moveTo(0, y * cellSize);
-    ctx.lineTo(canvas.width, y * cellSize);
-    ctx.stroke();
+  for (let y = 0; y <= rows; y += lineStep) {
+    const pixelY = Math.floor(y * cellSize) + 0.5;
+    ctx.moveTo(0, pixelY);
+    ctx.lineTo(canvas.width, pixelY);
   }
+
+  ctx.stroke();
 }
 
 function updateStats(population = null) {
@@ -219,6 +232,11 @@ stepButton.addEventListener("click", () => {
 randomButton.addEventListener("click", randomizeGrid);
 clearButton.addEventListener("click", clearGrid);
 
+gridSizeSelect.addEventListener("change", () => {
+  const newSize = Number(gridSizeSelect.value);
+  resizeGrid(newSize);
+});
+
 gridToggleButton.addEventListener("click", () => {
   showGrid = !showGrid;
   gridToggleButton.textContent = showGrid ? "Grid: On" : "Grid: Off";
@@ -256,6 +274,25 @@ canvas.addEventListener("mouseup", () => {
 canvas.addEventListener("mouseleave", () => {
   isDrawing = false;
 });
+
+
+
+function resizeGrid(newSize) {
+  gridSize = newSize;
+  cols = gridSize;
+  rows = gridSize;
+  cellSize = canvas.width / cols;
+
+  currentGrid = new Uint8Array(cols * rows);
+  nextGrid = new Uint8Array(cols * rows);
+
+  generation = 0;
+  isRunning = false;
+  playPauseButton.textContent = "Play";
+
+  updateStats();
+  drawGrid();
+}
 
 updateStats();
 drawGrid();
