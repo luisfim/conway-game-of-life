@@ -109,3 +109,174 @@ canvas {
 .page-footer a {
   color: #ffffff;
 }
+.history-page {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 24px;
+}
+
+.back-link {
+  display: inline-block;
+  margin-bottom: 24px;
+  color: #ffffff;
+  font-family: "Courier New", monospace;
+  text-decoration: none;
+}
+
+.back-link:hover {
+  text-decoration: underline;
+}
+
+.history-section {
+  background: #151515;
+  border: 1px solid #333;
+  padding: 24px;
+  margin-bottom: 24px;
+  text-align: left;
+}
+
+.history-section h1,
+.history-section h2,
+.history-section h3 {
+  font-family: "Courier New", monospace;
+  color: #ffffff;
+}
+
+.history-section p {
+  color: #cccccc;
+  line-height: 1.6;
+}
+
+.rule-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 16px;
+}
+
+.rule-grid article {
+  border: 1px solid #333;
+  padding: 16px;
+  background: #000000;
+}
+
+.pattern-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 18px;
+}
+
+.pattern-card {
+  background: #000000;
+  border: 1px solid #333;
+  padding: 16px;
+}
+
+.life-pattern {
+  width: 140px;
+  height: 140px;
+  margin: 16px auto;
+  background-color: #000000;
+  background-size: 20px 20px;
+  border: 1px solid #444;
+  image-rendering: pixelated;
+}
+
+.blinker-pattern {
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size:
+    20px 20px,
+    20px 20px,
+    20px 20px;
+  background-position:
+    40px 60px,
+    60px 60px,
+    80px 60px;
+}
+
+.glider-pattern {
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size:
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px;
+  background-position:
+    60px 40px,
+    80px 60px,
+    40px 80px,
+    60px 80px,
+    80px 80px;
+}
+
+.pulsar-pattern {
+  background-image:
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff),
+    linear-gradient(#fff, #fff);
+  background-repeat: no-repeat;
+  background-size:
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px,
+    20px 20px;
+  background-position:
+    40px 20px,
+    60px 20px,
+    80px 20px,
+    40px 100px,
+    60px 100px,
+    80px 100px,
+    20px 40px,
+    20px 60px,
+    20px 80px,
+    100px 40px,
+    100px 60px,
+    100px 80px;
+}
+
+.sources a {
+  color: #ffffff;
+}
+
+@media (max-width: 700px) {
+  .rule-grid,
+  .pattern-gallery {
+    grid-template-columns: 1fr;
+  }
+
+  .history-side-button {
+    top: auto;
+    right: 16px;
+    bottom: 16px;
+    transform: none;
+    writing-mode: horizontal-tb;
+  }
+}
