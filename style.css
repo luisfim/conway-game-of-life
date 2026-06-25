@@ -3,9 +3,10 @@
 }
 
 .title-image {
+  display: block;
   width: min(900px, 100%);
   height: auto;
-  margin-bottom: 12px;
+  margin: 0 auto 24px auto;
   image-rendering: pixelated;
 }
 
