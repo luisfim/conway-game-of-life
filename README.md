@@ -13,20 +13,7 @@ https://luisfim.github.io/YOUR-REPOSITORY-NAME/
 ## Preview
 ![Conway's Game of Life preview](preview.jpeg)
 
-Features
-Interactive HTML Canvas simulation
-Play and pause controls
-Step-by-step generation control
-Random world generation
-Clear/reset button
-Adjustable simulation speed
-Grid visibility toggle
-Multiple grid sizes
-Left-click and drag to add cells
-Right-click and drag to remove cells
-History page about Conway's Game of Life
-Pixel-inspired visual identity
-How It Works
+## How It Works
 
 The simulation uses a two-dimensional grid of cells.
 
@@ -56,26 +43,3 @@ JavaScript
 Canvas API
 GitHub Pages
 Project Goals
-
-This project is part of my programming portfolio.
-
-The goals are:
-
-practice JavaScript and Canvas rendering
-understand cellular automata
-build a clean interactive simulation
-create a foundation for a future game mechanic
-document the project clearly on GitHub
-Future Ideas
-Pattern presets
-Import/export patterns
-Zoom and pan
-ImageData rendering optimization
-WebGL version
-Game mode with objectives
-Infection/corruption mechanics
-Puzzle mode
-Survival mode
-Author
-
-Created by Luis Fim.
