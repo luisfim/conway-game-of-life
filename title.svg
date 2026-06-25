@@ -1,0 +1,46 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 900 180">
+  <rect width="900" height="180" fill="#000000"></rect>
+
+  <!-- Random life-like background cells -->
+  <g fill="#ffffff" opacity="0.18">
+    <rect x="30" y="25" width="8" height="8"></rect>
+    <rect x="58" y="42" width="8" height="8"></rect>
+    <rect x="84" y="31" width="8" height="8"></rect>
+    <rect x="790" y="28" width="8" height="8"></rect>
+    <rect x="820" y="48" width="8" height="8"></rect>
+    <rect x="850" y="35" width="8" height="8"></rect>
+
+    <rect x="110" y="120" width="8" height="8"></rect>
+    <rect x="138" y="138" width="8" height="8"></rect>
+    <rect x="166" y="126" width="8" height="8"></rect>
+    <rect x="705" y="122" width="8" height="8"></rect>
+    <rect x="735" y="142" width="8" height="8"></rect>
+    <rect x="768" y="128" width="8" height="8"></rect>
+  </g>
+
+  <!-- Pulsar-like corner motifs -->
+  <g fill="#ffffff" opacity="0.55">
+    <rect x="34" y="72" width="7" height="7"></rect>
+    <rect x="44" y="72" width="7" height="7"></rect>
+    <rect x="54" y="72" width="7" height="7"></rect>
+    <rect x="34" y="98" width="7" height="7"></rect>
+    <rect x="44" y="98" width="7" height="7"></rect>
+    <rect x="54" y="98" width="7" height="7"></rect>
+
+    <rect x="838" y="72" width="7" height="7"></rect>
+    <rect x="848" y="72" width="7" height="7"></rect>
+    <rect x="858" y="72" width="7" height="7"></rect>
+    <rect x="838" y="98" width="7" height="7"></rect>
+    <rect x="848" y="98" width="7" height="7"></rect>
+    <rect x="858" y="98" width="7" height="7"></rect>
+  </g>
+
+  <!-- Pixel-style title -->
+  <text x="450" y="92" text-anchor="middle" dominant-baseline="middle" fill="#ffffff" font-family="Courier New, monospace" font-size="48" font-weight="700" letter-spacing="2">
+    Conway's Game of Life
+  </text>
+
+  <text x="450" y="134" text-anchor="middle" dominant-baseline="middle" fill="#aaaaaa" font-family="Courier New, monospace" font-size="18" letter-spacing="3">
+    cellular automata laboratory
+  </text>
+</svg>
