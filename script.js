@@ -100,6 +100,29 @@ function drawGrid() {
       }
     }
   }
+
+  if (showGrid) {
+    drawGridLines();
+  }
+}
+
+function drawGridLines() {
+  ctx.strokeStyle = "rgba(255, 255, 255, 0.15)";
+  ctx.lineWidth = 1;
+
+  for (let x = 0; x <= cols; x++) {
+    ctx.beginPath();
+    ctx.moveTo(x * cellSize, 0);
+    ctx.lineTo(x * cellSize, canvas.height);
+    ctx.stroke();
+  }
+
+  for (let y = 0; y <= rows; y++) {
+    ctx.beginPath();
+    ctx.moveTo(0, y * cellSize);
+    ctx.lineTo(canvas.width, y * cellSize);
+    ctx.stroke();
+  }
 }
 
 function updateStats(population = null) {
@@ -183,6 +206,13 @@ stepButton.addEventListener("click", () => {
 
 randomButton.addEventListener("click", randomizeGrid);
 clearButton.addEventListener("click", clearGrid);
+
+gridToggleButton.addEventListener("click", () => {
+  showGrid = !showGrid;
+  gridToggleButton.textContent = showGrid ? "Grid: On" : "Grid: Off";
+  drawGrid();
+});
+
 canvas.addEventListener("click", toggleCell);
 
 updateStats();
