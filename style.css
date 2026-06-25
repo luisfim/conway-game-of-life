@@ -2,6 +2,13 @@
   box-sizing: border-box;
 }
 
+.title-image {
+  width: min(900px, 100%);
+  height: auto;
+  margin-bottom: 12px;
+  image-rendering: pixelated;
+}
+
 body {
   margin: 0;
   background: #111;
@@ -64,4 +71,41 @@ canvas {
   border: 1px solid #444;
   background: #000;
   image-rendering: pixelated;
+}
+
+.history-side-button {
+  position: fixed;
+  right: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  writing-mode: vertical-rl;
+  text-orientation: mixed;
+
+  background: #ffffff;
+  color: #000000;
+  border: 1px solid #ffffff;
+
+  padding: 14px 8px;
+  font-family: "Courier New", monospace;
+  font-weight: bold;
+  text-decoration: none;
+  letter-spacing: 2px;
+
+  z-index: 10;
+}
+
+.history-side-button:hover {
+  background: #000000;
+  color: #ffffff;
+}
+
+.page-footer {
+  margin-top: 32px;
+  padding: 24px;
+  color: #aaa;
+  font-size: 14px;
+}
+
+.page-footer a {
+  color: #ffffff;
 }
