@@ -64,4 +64,5 @@ canvas {
   border: 1px solid #444;
   background: #000;
   image-rendering: pixelated;
+  cursor: crosshair;
 }
