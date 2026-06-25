@@ -1,1 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
+  <title>Conway Life Lab</title>
+
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <main class="app">
+    <h1>Conway Life Lab</h1>
+
+    <p class="description">
+      A simple recreation of Conway's Game of Life using HTML Canvas.
+    </p>
+
+    <section class="controls">
+      <button id="playPauseButton">Play</button>
+      <button id="stepButton">Step</button>
+      <button id="randomButton">Randomize</button>
+      <button id="clearButton">Clear</button>
+
+      <label>
+        Speed:
+        <input id="speedSlider" type="range" min="1" max="30" value="10" />
+      </label>
+    </section>
+
+    <section class="stats">
+      <span>Generation: <strong id="generationText">0</strong></span>
+      <span>Population: <strong id="populationText">0</strong></span>
+    </section>
+
+    <canvas id="gameCanvas" width="800" height="800"></canvas>
+  </main>
+
+  <script src="script.js"></script>
+</body>
+</html>
