@@ -462,6 +462,12 @@ canvas {
 
   /* Final visual polish */
 
+  @media (max-width: 760px) {
+  .history-side-button:hover {
+    transform: none;
+  }
+}
+
 ::selection {
   background: #ffffff;
   color: #000000;
