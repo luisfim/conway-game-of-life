@@ -14,8 +14,8 @@ const placePatternButton = document.getElementById("placePatternButton");
 const generationText = document.getElementById("generationText");
 const populationText = document.getElementById("populationText");
 
-// Grid size for the first version.
-// Later we can increase this to 250, 500, or 1000.
+const lauraEasterEggButton = document.getElementById("lauraEasterEggButton");
+
 let gridSize = 100;
 let cols = gridSize;
 let rows = gridSize;
@@ -23,6 +23,20 @@ let cellSize = canvas.width / cols;
 
 let currentGrid = new Uint8Array(cols * rows);
 let nextGrid = new Uint8Array(cols * rows);
+
+function createPatternFromRows(rows) {
+  const cells = [];
+
+  for (let y = 0; y < rows.length; y++) {
+    for (let x = 0; x < rows[y].length; x++) {
+      if (rows[y][x] === "#") {
+        cells.push([x, y]);
+      }
+    }
+  }
+
+  return cells;
+}
 
 const patterns = {
   glider: [
@@ -64,6 +78,16 @@ const patterns = {
     [11, 7], [15, 7],
     [12, 8], [13, 8],
   ],
+
+  laura: createPatternFromRows([
+    "#.... .###. #...# ####. .###.",
+    "#.... #...# #...# #...# #...#",
+    "#.... #...# #...# #...# #...#",
+    "#.... ##### #...# ####. #####",
+    "#.... #...# #...# #.#.. #...#",
+    "#.... #...# #...# #..#. #...#",
+    "##### #...# .###. #...# #...#",
+  ]),
 };
 
 let isRunning = false;
@@ -154,8 +178,6 @@ function drawGrid() {
 }
 
 function drawGridLines() {
-  // If the cells are too small, drawing every line makes the canvas look gray.
-  // So for large grids, we draw only major grid lines.
   let lineStep = 1;
 
   if (cellSize < 2) {
@@ -312,6 +334,28 @@ function placePattern(patternName) {
   drawGrid();
 }
 
+function activateLauraEasterEgg() {
+  isRunning = false;
+  playPauseButton.textContent = "Play";
+
+  currentGrid.fill(0);
+  nextGrid.fill(0);
+
+  generation = 0;
+
+  placePattern("laura");
+
+  console.log(`
+#.... .###. #...# ####. .###.
+#.... #...# #...# #...# #...#
+#.... #...# #...# #...# #...#
+#.... ##### #...# ####. #####
+#.... #...# #...# #.#.. #...#
+#.... #...# #...# #..#. #...#
+##### #...# .###. #...# #...#
+`);
+}
+
 playPauseButton.addEventListener("click", () => {
   isRunning = !isRunning;
   playPauseButton.textContent = isRunning ? "Pause" : "Play";
@@ -340,6 +384,8 @@ gridToggleButton.addEventListener("click", () => {
   drawGrid();
 });
 
+lauraEasterEggButton.addEventListener("click", activateLauraEasterEgg);
+
 canvas.addEventListener("contextmenu", (event) => {
   event.preventDefault();
 });
@@ -348,9 +394,9 @@ canvas.addEventListener("mousedown", (event) => {
   isDrawing = true;
 
   if (event.button === 2) {
-    drawMode = 0; // right click removes cells
+    drawMode = 0;
   } else {
-    drawMode = 1; // left click adds cells
+    drawMode = 1;
   }
 
   setCellFromMouse(event);
